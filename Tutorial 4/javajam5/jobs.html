@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaJam Coffee House Jobs</title>
+    <link rel="stylesheet" href="/Tutorial 4/javajam5/javajam.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/Tutorial 4/javajam5/index.html">Home</a></li>
+                <li><a href="/Tutorial 4/javajam5/menu.html">Menu</a></li>
+                <li><a href="/Tutorial 4/javajam5/music.html">Music</a></li>
+                <li><a href="/Tutorial 4/javajam5/jobs.html">Jobs</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>Jobs at JavaJam</h2>
+            <p>
+                Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked with an asterisk (*).
+            </p>
+            <form action="http://webdevbasics.net/scripts/javajam8.php" method="post" enctype="multipart/form-data">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+                <label for="email">E-mail</label><br>
+                <input type="email" id="email" name="email" placeholder="Enter your e-mail" required><br>
+                <label for="experience">Experience</label><br>
+                <textarea id="experience" name="experience" rows="4" placeholder="Tell us about your experience"></textarea><br>
+                <script>
+                    // Define jobclass objects
+                    var jobclasses = [
+                        { code: 'ba', name: 'Barista', scope: 'Preparing and serving hot and cold drinks such as coffee, tea, artisan, and specialty beverages.' },
+                        { code: 'ma', name: 'Manager', scope: 'Managing day-to-day operations of the cafe.' },
+                        { code: 'tr', name: 'Trainee', scope: 'Supporting daily operations of the cafe.' }
+                    ];
+
+                    // Generate the dropdown list
+                    var selectElement = document.getElementById('select-choice');
+                    for (var i = 0; i < jobclasses.length; i++) {
+                        var option = document.createElement('option');
+                        option.value = jobclasses[i].code;
+                        option.textContent = jobclasses[i].name;
+                        selectElement.appendChild(option);
+                    }
+
+                    // Display the job scope
+                    var jobScopeParagraph = document.createElement('p');
+                    jobScopeParagraph.id = 'jobScope';
+                    jobScopeParagraph.textContent = jobclasses[0].scope; // Display the first job position
+
+                    // **Corrected placement:** Insert the job scope paragraph after the interviewDateTime element
+                    document.getElementById('interviewDateTime').parentNode.insertBefore(jobScopeParagraph, document.getElementById('interviewDateTime'));
+
+                    // Add event listener for dropdown change
+                    selectElement.addEventListener('change', function () {
+                        var selectedCode = this.value;
+                        var selectedJob = jobclasses.find(function (job) {
+                            return job.code === selectedCode;
+                        });
+                        if (selectedJob) {
+                            jobScopeParagraph.textContent = selectedJob.scope;
+                        } else {
+                            jobScopeParagraph.textContent = ''; // Clear scope if no valid selection
+                        }
+                    });
+                </script><br>
+                <label for="select-choice">Select job position</label><br>
+                <select id="select-choice" class="option" name="position"></select><br>
+                <p id="jobScope"></p><br>
+                <label for="interviewDateTime">Preferred Interview Date and Time</label><br>
+                <input type="datetime-local" id="interviewDateTime" name="interviewDateTime"><br>
+                <label for="photo">Upload your photo</label><br>
+                <input type="file" id="photo" name="photo"><br>
+                <input type="submit" value="Apply Now"><br>
+            </form>
+            <br>
+            <footer>
+                Copyright &copy; 2021 JavaJam Coffee House<br>
+                <a href="yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

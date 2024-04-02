@@ -4,8 +4,12 @@
 <head>
     <title>Apple Tours</title>
     <!-- Q1(c) Define a new CSS class with the styles (i.e. blue font color and a dashed blue border) -->
-
-
+    <style>
+        .toggle {
+            color: blue;
+            border: 2px dashed blue;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,22 +26,30 @@
     </div>
 
     <script>
-<!-- Add your JavaScript codes here -->
+        <!-- Add your JavaScript codes here -->
+        (function () {
+            //Q1(a) Select all <li> and print out the list items in the browser’s JavaScript console
+            const listItems = document.querySelectorAll('ul li');
+            for (const item of listItems) {
+                console.log(item.textContent);
+            }
 
-    //Q1(a) Select all <li> and print out the list items in the browser’s JavaScript console
+            //Q1(b) Select the <a> with class "special" and print a pop-up message “Book a tour” when it is moused over
+            const bookTourLink = document.querySelector('.special');
+            bookTourLink.addEventListener('mouseover', function () {
+                alert('Book a Tour');
+            });
 
+            //Q1(c) Select the <span> element with id “there” and toggle the new CSS class to manipulate the styles of the element.
+            //The toggle() class = Toggle between adding and removing a class name from a selected element with JavaScript.
+            const thereSpan = document.getElementById('there');
+            let hasToggleStyle = false;
 
-
-        //Q1(b) Select the <a> with class "special" and print a pop-up message “Book a tour” when it is moused over
-
-
-
-            //Q1(c) Select the <span> element with id “there” and toggle the new CSS class to manipulate the styles of
-                the element.
-            //The toggle() class = Toggle between adding and removing a class name from a selected element with
-            JavaScript.
-
-
+            thereSpan.addEventListener('click', function () {
+                hasToggleStyle = !hasToggleStyle;
+                thereSpan.classList.toggle('toggle', hasToggleStyle);
+            });
+        })();
     </script>
 </body>
 
