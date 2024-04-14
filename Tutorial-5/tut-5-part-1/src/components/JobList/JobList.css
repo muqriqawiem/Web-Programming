@@ -1,0 +1,10 @@
+.job-list{
+    list-style-type:disc ;
+    margin: 2rem;
+}
+
+.job-list li{
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
