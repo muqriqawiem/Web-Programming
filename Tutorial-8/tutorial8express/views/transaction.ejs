@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+        </tr>
+        <% transactions.forEach(function(transaction) { %>
+            <tr>
+                <td>
+                    <%= transaction.date %>
+                </td>
+                <td>
+                    <%= transaction.type %>
+                </td>
+                <td>
+                    <%= transaction.amount %>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+
+    <% let highExpense=transactions.find(transaction=> transaction.amount > 100); %>
+        <% if(highExpense) { %>
+            <p>Be careful with your expenses! You have spent <%= highExpense.amount %> in <%= highExpense.type %>.</p>
+            <% } %>
+
+                <%- include('partials/footer') %>
