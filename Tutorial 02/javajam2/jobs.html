@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaJam Coffee House Jobs</title>
+    <link rel="stylesheet" href="javajam.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>JavaJam Coffee House</h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            &nbsp;
+            <a href="menu.html">Menu</a>
+            &nbsp;
+            <a href="music.html">Music</a>
+            &nbsp;
+            <a href="jobs.html">Jobs</a>
+        </nav>
+
+        <main>
+            <h2>Jobs at JavaJam</h2>
+            <p>
+                Want to work at JavaJam? Fill out the form below to start your application. Required fields are marked
+                with
+                an asterisk (*).
+            </p>
+            <form action="http://webdevbasics.net/scripts/javajam8.php" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td><label for="name">Name</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="name" name="name" placeholder="Enter your name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">E-mail</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" id="email" name="email" placeholder="Enter your e-mail" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="experience">Experience</label></td>
+                    </tr>
+                    <tr>
+                        <td><textarea id="experience" name="experience" rows="4"
+                                placeholder="Tell us about your experience"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="position">Select job position</label>
+                            <select id="position" name="position">
+                                <option value="developer">Developer</option>
+                                <option value="designer">Designer</option>
+                                <option value="manager">Manager</option>
+                            </select>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="interviewDateTime">Preferred Interview Date and Time</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="datetime-local" id="interviewDateTime" name="interviewDateTime"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="photo">Upload your photo</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="file" id="photo" name="photo"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Apply Now"></td>
+                    </tr>
+                </table>
+            </form>
+            <br>
+            <footer>
+                Copyright &copy; 2021 JavaJam Coffee House<br>
+                <a href="yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>
